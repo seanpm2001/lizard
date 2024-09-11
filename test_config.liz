@@ -1,0 +1,8 @@
+bt = Bluetooth("1")
+can = Can(32, 33, 1000000)
+l0 = ODriveMotor(can, 0)
+r0 = ODriveMotor(can, 512)
+wheels = ODriveWheels(l0, r0)
+
+
+when core.last_message_age > 1000 then wheels.speed(0, 0); end
