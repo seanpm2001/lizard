@@ -6,6 +6,7 @@ Bluetooth::Bluetooth(const std::string name, const std::string device_name, Mess
     ZZ::BleCommand::init(device_name, [message_handler](const std::string_view &message) {
         try {
             std::string message_string(message.data(), message.length());
+            echo("received bluetooth message: %s", message_string.c_str());
             message_handler(message_string.c_str(), true, false);
         } catch (const std::exception &e) {
             echo("error in bluetooth message handler: %s", e.what());
