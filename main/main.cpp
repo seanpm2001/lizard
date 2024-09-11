@@ -297,6 +297,7 @@ void process_lizard(const char *line, bool trigger_keep_alive, bool from_expande
         echo(">> %s", line);
         tic();
     }
+    echo("BT DEBUG: %s", line);
     auto const tree = std::unique_ptr<owl_tree, std::function<void(owl_tree *)>>(owl_tree_create_from_string(line), owl_tree_destroy);
     if (debug) {
         toc("Tree creation");
